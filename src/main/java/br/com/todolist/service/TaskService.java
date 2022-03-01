@@ -1,6 +1,7 @@
 package br.com.todolist.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,15 @@ public class TaskService  {
 	
 	public List<Task> list() {
 		List<Task> list = repository.findAll();
+		return list;
+	}
+	
+	public Optional<Task> listById(Long id) {
+		return repository.findById(id);
+	}
+	
+	public List<Task> listByChecked(boolean checked, Long userId) {
+		List<Task> list = repository.findByChecked(checked, userId);
 		return list;
 	}
 	

@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -21,24 +19,20 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tarefa")
-public class Task implements Serializable{ 
-	
+@Table(name = "usuario")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_tarefa")
+	@Column(name = "id_usuario")
 	private Long id;
 	
 	@Column(name = "nome")
 	private String name;
 	
-	@Column(name = "feito")
-	private boolean checked;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_usuario", nullable = false)
-	private User user;
+	@Column(name = "ativo")
+	private boolean active;
 	
 }
